@@ -60,6 +60,18 @@ const theme = createTheme({
       `,
     },
   },
+  overrides: {
+    MuiLink: {
+      root: {
+        color: '#000000',
+        textDecoration: 'none',
+        fontWeight: 'bold',
+        '&:hover': {
+          color: '#19857b',
+        },
+      },
+    },
+  },
 });
 
 theme.typography.headerTitle = {

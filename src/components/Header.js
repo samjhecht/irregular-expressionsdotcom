@@ -1,13 +1,12 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Link as GatsbyLink } from 'gatsby';
 import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
+import Link from '../components/Link';
 import { Box } from '@mui/material';
 import { Stack } from '@mui/material';
 
 function Header(props) {
-    const { sections, title, location } = props;
+    const { title, location } = props;
     const pathname = location.pathname
     const pathnameArray = pathname.split('/')
     const page = pathnameArray[1]
@@ -34,7 +33,6 @@ function Header(props) {
                         whiteSpace: 'nowrap',
                     }}>
                     <Link
-                        as={GatsbyLink}
                         to="/"
                         sx={{
                             color: 'primary.black',
@@ -56,7 +54,7 @@ function Header(props) {
                         fontSize: '1.5rem',
                     }}
                 >
-                    <Link as={GatsbyLink} to="/poetry" sx={{ color: 'primary.black', textDecoration: 'none', }}>Poetry</Link>
+                    <Link to="/poetry" sx={{ color: 'primary.black', textDecoration: 'none', }}>Poetry</Link>
                 </Typography>
                 <Typography
                 variant='headerNav'
@@ -65,7 +63,7 @@ function Header(props) {
                         fontSize: '1.5rem',
                     }}
                 >
-                    <Link as={GatsbyLink} to="/blog" sx={{ color: 'primary.black', textDecoration: 'none', }}>Blog</Link>
+                    <Link to="/blog" sx={{ color: 'primary.black', textDecoration: 'none', }}>Blog</Link>
                 </Typography>
                 <Typography
                 variant='headerNav'
@@ -74,7 +72,7 @@ function Header(props) {
                         fontSize: '1.5rem',
                     }}
                 >
-                    <Link as={GatsbyLink} to="/about" sx={{ color: 'primary.black', textDecoration: 'none', }}>About</Link>
+                    <Link to="/about" sx={{ color: 'primary.black', textDecoration: 'none', }}>About</Link>
                 </Typography>
             </Stack>
         </>

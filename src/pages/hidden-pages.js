@@ -1,35 +1,36 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link as GatsbyLink } from "gatsby"
 import List from "@mui/material/List"
 import ListItem from "@mui/material/ListItem"
 import ListItemText from "@mui/material/ListItemText"
 import Typography from '@mui/material/Typography';
-import Link from '../components/Link';
+import Link from '@mui/material/Link';
 import Layout from "../components/Layout";
 
-const Poetry = ({ data, location }) => {
-    const poems = data.allMarkdownRemark.nodes
+const HiddenPages = ({ data, location }) => {
+    const hiddenPages = data.allMarkdownRemark.nodes
 
-    if (poems.length === 0) {
+    if (hiddenPages.length === 0) {
         return (
-            <Layout location={location} title="Poetry">
-                <Typography variant="body1">There are no poems yet.</Typography>
+            <Layout location={location} title="Hidden Pages">
+                <Typography variant="body1">There are no hiddenPages yet.</Typography>
             </Layout>
         )
     }
 
     return (
-        <Layout location={location} title="Poetry">
+        <Layout location={location} title="Hidden Pages">
             <List>
-                {poems.map((poem) => {
-                    const title = poem.frontmatter.title || poem.fields.slug
+                {hiddenPages.map((hiddenPage) => {
+                    const title = hiddenPage.frontmatter.title || hiddenPage.fields.slug
 
                     return (
-                        <ListItem key={`/poetry${poem.fields.slug}`}>
+                        <ListItem key={`/hidden-pages${hiddenPage.fields.slug}`}>
                             <ListItemText
                                 primary={
                                     <Link
-                                        to={`/poetry${poem.fields.slug}`}
+                                        as={GatsbyLink}
+                                        to={`/hidden-pages${hiddenPage.fields.slug}`}
                                         sx={{
                                             color: 'primary.black',
                                             textDecoration: 'none',
@@ -47,12 +48,13 @@ const Poetry = ({ data, location }) => {
                                         <Typography
                                             variant="body2"
                                             color="text.black"
+                                            sx={{paddingBottom: "1rem", paddingTop: "0.5rem"}}
                                         >
-                                            {poem.frontmatter.date}
+                                            {hiddenPage.frontmatter.date}
                                         </Typography>
                                         <Typography
                                             dangerouslySetInnerHTML={{
-                                                __html: poem.frontmatter.description || poem.excerpt,
+                                                __html: hiddenPage.frontmatter.description || hiddenPage.excerpt,
                                             }}
                                             itemProp="description"
                                         />
@@ -67,7 +69,7 @@ const Poetry = ({ data, location }) => {
     )
 }
 
-export default Poetry
+export default HiddenPages
 
 export const pageQuery = graphql`
   {
@@ -77,9 +79,9 @@ export const pageQuery = graphql`
       }
     }
     allMarkdownRemark(
-        filter: {fileAbsolutePath: {glob: "**/content/poetry/**/*.md"}}
-        sort: { frontmatter: { date: DESC } }
-    ) {
+      filter: {fileAbsolutePath: {glob: "**/content/hidden-pages/**/*.md"}}
+      sort: { frontmatter: { date: DESC } }
+  ) {
       nodes {
         excerpt
         fields {
@@ -89,16 +91,15 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          images {
+            childImageSharp {
+              fluid(maxWidth: 800) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
         }
       }
     }
   }
 `
-
-// /**
-//  * Head export to define metadata for the page
-//  *
-//  * See: https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-head/
-//  */
-
-

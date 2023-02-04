@@ -7,9 +7,6 @@ module.exports = {
     },
     description: `A necessary extravagance.`,
     siteUrl: `https://irregular-expressions.com/`,
-    social: {
-      instagram: `juliushecht`,
-    },
   },
   plugins: [
     'gatsby-plugin-top-layout',
@@ -19,6 +16,27 @@ module.exports = {
     'gatsby-plugin-mui-emotion',
     'gatsby-plugin-image',
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 400,
+            },
+          },
+          {
+            resolve: `gatsby-remark-responsive-iframe`,
+            options: {
+              wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          `gatsby-remark-prismjs`,
+        ],
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -41,6 +59,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/poetry`,
         name: `poetry`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/content/hidden-pages`,
+        name: `hidden-pages`,
       },
     },
     {

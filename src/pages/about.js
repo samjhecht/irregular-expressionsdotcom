@@ -1,15 +1,11 @@
 import * as React from 'react';
-import { graphql, Link as GatsbyLink } from "gatsby";
+import { graphql } from "gatsby";
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Layout from "../components/Layout";
-import { StaticImage } from "gatsby-plugin-image";
-import Container from '@mui/material/Container';
 import Link from '../components/Link';
 import Grid2 from '@mui/material/Unstable_Grid2'
 import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
-import { Avatar } from '@mui/material/Avatar';
 
 const About = ({ location }) => {
 
@@ -17,26 +13,27 @@ const About = ({ location }) => {
     <Layout location={location}>
       <Box>
         <Typography
-          variant='h6'
           sx={{
-            fontSize: "1.2rem",
+            fontSize: "1.6rem",
             fontWeight: "bold",
+            paddingBottom: "1rem",
           }}
         >
           About
         </Typography>
-        <Grid2 container spacing={2}>
+        <Grid2 container spacing={2} disableEqualOverflow>
           <Grid2 xs={7}>
             <Stack
               direction="column"
               alignItems="center"
               justifyContent="space-evenly"
-              spacing={(2, 4)}
+              spacing={(4)}
+              sx={{maxWidth: "100%", maxHeight: "100%", }}
             >
-              <Typography>
-                Welcome to Irregular-Expressions.com!&nbsp;&nbsp;I'm <strong>Julius Hecht</strong>.&nbsp;&nbsp;
+              <Typography variant="body1">
+                Welcome to Irregular-Expressions.com!  I'm <strong>Julius Hecht</strong>.&nbsp;&nbsp;
                 I made this site so I could publish my poetry and other stuff I feel like writing.&nbsp;&nbsp;
-                Now, please excuse me while I express myself.
+                Now, please excuse me while I express myself.   
                 {` `}
               </Typography>
               <Stack
@@ -83,15 +80,15 @@ const About = ({ location }) => {
                 </Link>
               </Stack>
             </Stack>
-
           </Grid2>
           <Grid2 xs={5}>
             <Box
               component="img"
               src="../images/with_david_800_915.jpg"
               sx={{
-                width: 300,
                 minWidth: "200px",
+                maxWidth: "100%",
+                maxHeight: "100%",
                 borderRadius: "100%"
               }}
               alt="Julius Hecht"

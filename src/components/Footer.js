@@ -1,9 +1,7 @@
 import * as React from 'react';
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import Link from '@mui/material/Link';
 
 
 export default function StickyFooter() {
@@ -18,7 +16,7 @@ export default function StickyFooter() {
                 }}
             >
                 <Container maxWidth="sm">
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography color="text.black" sx={{fontSize: "0.92rem"}}>
                         Copyright © {new Date().getFullYear()}, Julius Hecht.
                         {` `}
                     </Typography>

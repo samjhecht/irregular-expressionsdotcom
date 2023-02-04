@@ -10,163 +10,165 @@ const { createFilePath } = require(`gatsby-source-filesystem`)
 
 
 
-// // Define the template for blog post
-// const blogPost = path.resolve(`./src/templates/blog-post.js`)
-// const poetryTemplate = path.resolve(`./src/templates/poem-post.js`)
+// Define the template for blog post
+const blogPost = path.resolve(`./src/templates/blog-post.js`)
+const hiddenPageTemplate = path.resolve(`./src/templates/hidden-page.js`)
+const poemTemplate = path.resolve(`./src/templates/poem.js`)
 
-// /**
-//  * @type {import('gatsby').GatsbyNode['createPages']}
-//  */
-// exports.createPages = async ({ graphql, actions, reporter }) => {
-//   const { createPage } = actions
+/**
+ * @type {import('gatsby').GatsbyNode['createPages']}
+ */
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions
 
-//   // Get all markdown blog posts sorted by date
-//   const resultBlog = await graphql(`
-//     {
-//       allMarkdownRemark(
-//         filter: {fileAbsolutePath: {glob: "**/content/blog/**/*.md"}}
-//         sort: { frontmatter: { date: ASC } }
-//         limit: 1000
-//       ) {
-//         nodes {
-//           id
-//           fields {
-//             slug
-//           }
-//         }
-//       }
-//     }
-//   `)
+  // Get all markdown blog posts sorted by date
+  const resultBlog = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: {fileAbsolutePath: {glob: "**/content/blog/**/*.md"}}
+        sort: { frontmatter: { date: ASC } }
+        limit: 1000
+      ) {
+        nodes {
+          id
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `)
 
-//   if (resultBlog.errors) {
-//     reporter.panicOnBuild(
-//       `There was an error loading your blog posts`,
-//       resultBlog.errors
-//     )
-//     return
-//   }
+  if (resultBlog.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      resultBlog.errors
+    )
+    return
+  }
 
-//   const blogPosts = resultBlog.data.allMarkdownRemark.nodes
+  const blogPosts = resultBlog.data.allMarkdownRemark.nodes
 
-//   // Create blog post pages
-//   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-//   // `context` is available in the template as a prop and as a variable in GraphQL
-//   if (blogPosts.length > 0) {
-//     blogPosts.forEach((post, index) => {
-//       const previousPostId = index === 0 ? null : blogPosts[index - 1].id
-//       const nextPostId = index === blogPosts.length - 1 ? null : blogPosts[index + 1].id
+  // Create blog post pages
+  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
+  // `context` is available in the template as a prop and as a variable in GraphQL
+  if (blogPosts.length > 0) {
+    blogPosts.forEach((post, index) => {
+      const previousPostId = index === 0 ? null : blogPosts[index - 1].id
+      const nextPostId = index === blogPosts.length - 1 ? null : blogPosts[index + 1].id
 
-//       createPage({
-//         path: `/blog${post.fields.slug}`,
-//         component: blogPost,
-//         context: {
-//           id: post.id,
-//           previousPostId,
-//           nextPostId,
-//         },
-//       })
-//     })
-//   }
+      createPage({
+        path: `/blog${post.fields.slug}`,
+        component: blogPost,
+        context: {
+          id: post.id,
+          previousPostId,
+          nextPostId,
+        },
+      })
+    })
+  }
 
-//   // Get all markdown blog posts sorted by date
-//   const resultHiddenPages = await graphql(`
-//     {
-//       allMarkdownRemark(
-//         filter: {fileAbsolutePath: {glob: "**/content/hidden-pages/**/*.md"}}
-//         sort: { frontmatter: { date: ASC } }
-//         limit: 1000
-//       ) {
-//         nodes {
-//           id
-//           fields {
-//             slug
-//           }
-//         }
-//       }
-//     }
-//   `)
+  // Get all markdown blog posts sorted by date
+  const resultHiddenPages = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: {fileAbsolutePath: {glob: "**/content/hidden-pages/**/*.md"}}
+        sort: { frontmatter: { date: ASC } }
+        limit: 1000
+      ) {
+        nodes {
+          id
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `)
 
-//   if (resultHiddenPages.errors) {
-//     reporter.panicOnBuild(
-//       `There was an error loading posts`,
-//       resultHiddenPages.errors
-//     )
-//     return
-//   }
+  if (resultHiddenPages.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading posts`,
+      resultHiddenPages.errors
+    )
+    return
+  }
 
-//   const hiddenPages = resultHiddenPages.data.allMarkdownRemark.nodes
+  const hiddenPages = resultHiddenPages.data.allMarkdownRemark.nodes
 
-//   // Create blog posts pages
-//   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-//   // `context` is available in the template as a prop and as a variable in GraphQL
-//   if (hiddenPages.length > 0) {
-//     hiddenPages.forEach((post, index) => {
-//       const previousPostId = index === 0 ? null : hiddenPages[index - 1].id
-//       const nextPostId = index === hiddenPages.length - 1 ? null : hiddenPages[index + 1].id
+  // Create blog posts pages
+  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
+  // `context` is available in the template as a prop and as a variable in GraphQL
+  if (hiddenPages.length > 0) {
+    hiddenPages.forEach((hiddenPage, index) => {
+      const previousHiddenPageId = index === 0 ? null : hiddenPages[index - 1].id
+      const nextHiddenPageId = index === hiddenPages.length - 1 ? null : hiddenPages[index + 1].id
 
-//       createPage({
-//         path: `/hidden-pages${post.fields.slug}`,
-//         component: blogPost,
-//         context: {
-//           id: post.id,
-//           previousPostId,
-//           nextPostId,
-//         },
-//       })
-//     })
-//   }
+      createPage({
+        path: `/hidden-pages${hiddenPage.fields.slug}`,
+        component: hiddenPageTemplate,
+        context: {
+          id: hiddenPage.id,
+          previousHiddenPageId,
+          nextHiddenPageId,
+        },
+      })
+    })
+  }
 
-//   // Get all markdown poetry posts sorted by date
-//   const poetryResult = await graphql(`
-//     {
-//       allMarkdownRemark(
-//         filter: {
-//           fileAbsolutePath: {glob: "**/content/poetry/**/*.md"}}
-//           sort: { frontmatter: { date: ASC } }
-//           limit: 1000
-//       ) {
-//         nodes {
-//           id
-//           fields {
-//             slug
-//           }
-//         }
-//       }
-//     }
-//   `)
+  // Get all markdown poetry posts sorted by date
+  const poetryResult = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: {
+          fileAbsolutePath: {glob: "**/content/poetry/**/*.md"}}
+          sort: { frontmatter: { date: ASC } }
+          limit: 1000
+      ) {
+        nodes {
+          id
+          fields {
+            slug
+          }
+        }
+      }
+    }
+  `)
   
-//   if (poetryResult.errors) {
-//     reporter.panicOnBuild(
-//       `There was an error loading your poetry posts`,
-//       poetryResult.errors
-//     )
-//     return
-//   }
+  if (poetryResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your poetry posts`,
+      poetryResult.errors
+    )
+    return
+  }
 
-//   const poems = poetryResult.data.allMarkdownRemark.nodes
+  const poems = poetryResult.data.allMarkdownRemark.nodes
 
-//   // Create blog posts pages
-//   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
-//   // `context` is available in the template as a prop and as a variable in GraphQL
-//   if (poems.length > 0) {
-//     poems.forEach((poem, index) => {
-//       const previousPoemId = index === 0 ? null : poems[index - 1].id
-//       const nextPoemId = index === poems.length - 1 ? null : poems[index + 1].id
+  // Create pages for each poem in "content/poetry" dir
+  // But only if there's at least one markdown file found at "content/poetry" (defined in gatsby-config.js)
+  // `context` is available in the template as a prop and as a variable in GraphQL
 
-//       createPage({
-//         path: `/poetry${poem.fields.slug}`,
-//         component: poetryTemplate,
-//         context: {
-//           id: poem.id,
-//           // title: poem.node.frontmatter.title,
-//           previousPoemId,
-//           nextPoemId,
-//         },
-//       })
-//     })
-//   }
+  if (poems.length > 0) {
+    poems.forEach((poem, index) => {
+      const previousPoemId = index === 0 ? null : poems[index - 1].id
+      const nextPoemId = index === poems.length - 1 ? null : poems[index + 1].id
 
-// }
+      createPage({
+        path: `/poetry${poem.fields.slug}`,
+        component: poemTemplate,
+        context: {
+          id: poem.id,
+          // title: poem.node.frontmatter.title,
+          previousPoemId,
+          nextPoemId,
+        },
+      })
+    })
+  }
+
+}
 
 
 /**
@@ -223,8 +225,25 @@ exports.createSchemaCustomization = ({ actions }) => {
         title: String
         description: String
         date: Date @dateformat
+        images: [File]
+        status: String
       }
   
+      type File {
+        childImageSharp: ChildImageSharp
+      }
+      
+      type ChildImageSharp {
+        fluid(maxWidth: Int, quality: Int): Fluid
+      }
+      
+      type Fluid {
+        aspectRatio: Float
+        src: String
+        srcSet: String
+        sizes: String
+      }
+
       type Fields {
         slug: String
       }
