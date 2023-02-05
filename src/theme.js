@@ -74,30 +74,30 @@ const theme = createTheme({
   },
 });
 
-theme.typography.headerTitle = {
-  fontSize: '1.2rem',
-  '@media (min-width:600px)': {
-    fontSize: '1.8rem',
-  },
-  '@media (min-width:400px)': {
-    fontSize: '1.6rem',
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: '2.4rem',
-  },
-}
+// theme.typography.headerTitle = {
+//   fontSize: '1.2rem',
+//   '@media (min-width:600px)': {
+//     fontSize: '1.8rem',
+//   },
+//   '@media (min-width:400px)': {
+//     fontSize: '1.6rem',
+//   },
+//   [theme.breakpoints.up('md')]: {
+//     fontSize: '2.4rem',
+//   },
+// }
 
-theme.typography.headerNav = {
-  fontSize: '1.2rem',
-  '@media (min-width:600px)': {
-    fontSize: '1.4em',
-  },
-  '@media (min-width:400px)': {
-    fontSize: '1.2rem',
-  },
-  [theme.breakpoints.up('md')]: {
-    fontSize: '1.4rem',
-  },
-}
+// theme.typography.headerNav = {
+//   fontSize: '1.2rem',
+//   '@media (min-width:600px)': {
+//     fontSize: '1.4em',
+//   },
+//   '@media (min-width:400px)': {
+//     fontSize: '1.2rem',
+//   },
+//   [theme.breakpoints.up('md')]: {
+//     fontSize: '1.4rem',
+//   },
+// }
 
 export default theme;

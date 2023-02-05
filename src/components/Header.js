@@ -13,7 +13,7 @@ function Header(props) {
 
     return (
         <>
-            <Box
+            {/* <Box
                 component="header"
                 sx={{
                     backgroundColor: 'primary.white',
@@ -40,40 +40,60 @@ function Header(props) {
                         }}
                     >Irregular Expressions</Link>
                 </Typography>
-            </Box>
-            <Stack
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-                spacing={2}
-            >
+            </Box> */}
+            <Stack direction="column" display="flex" justifyContent="flex-start" alignItems="center" spacing={2} sx={{mb: 8}}>
                 <Typography
-                    variant='headerNav'
-                    fontWeight={page === 'poetry' ? 'bold' : 'normal'} fontStyle={page === 'poetry' ? 'italic' : 'normal'}
+                    variant="h4"
                     sx={{
-                        fontSize: '1.5rem',
-                    }}
-                >
-                    <Link to="/poetry" sx={{ color: 'primary.black', textDecoration: 'none', }}>Poetry</Link>
+                        fontFamily: 'Vulf Sans',
+                        fontWeight: 'bold',
+                        fontStyle: 'normal',
+                        // fontSize: '2rem',
+                        whiteSpace: 'nowrap',
+                    }}>
+                    <Link
+                        to="/"
+                        sx={{
+                            color: 'primary.black',
+                            textDecoration: 'none',
+                        }}
+                    >Irregular Expressions</Link>
                 </Typography>
-                <Typography
-                variant='headerNav'
-                    fontWeight={page === 'blog' ? 'bold' : 'normal'} fontStyle={page === 'blog' ? 'italic' : 'normal'}
-                    sx={{
-                        fontSize: '1.5rem',
-                    }}
+
+                <Stack
+                    direction="row"
+                    justifyContent="center"
+                    alignItems="center"
+                    spacing={2}
                 >
-                    <Link to="/blog" sx={{ color: 'primary.black', textDecoration: 'none', }}>Blog</Link>
-                </Typography>
-                <Typography
-                variant='headerNav'
-                    fontWeight={page === 'about' ? 'bold' : 'normal'} fontStyle={page === 'about' ? 'italic' : 'normal'}
-                    sx={{
-                        fontSize: '1.5rem',
-                    }}
-                >
-                    <Link to="/about" sx={{ color: 'primary.black', textDecoration: 'none', }}>About</Link>
-                </Typography>
+                    <Typography
+                        variant='headerNav'
+                        fontWeight={page === 'poetry' ? 'bold' : 'normal'} fontStyle={page === 'poetry' ? 'italic' : 'normal'}
+                        sx={{
+                            fontSize: '1.5rem',
+                        }}
+                    >
+                        <Link to="/poetry" sx={{ color: 'primary.black', textDecoration: 'none', }}>Poetry</Link>
+                    </Typography>
+                    <Typography
+                        variant='headerNav'
+                        fontWeight={page === 'blog' ? 'bold' : 'normal'} fontStyle={page === 'blog' ? 'italic' : 'normal'}
+                        sx={{
+                            fontSize: '1.5rem',
+                        }}
+                    >
+                        <Link to="/blog" sx={{ color: 'primary.black', textDecoration: 'none', }}>Blog</Link>
+                    </Typography>
+                    <Typography
+                        variant='headerNav'
+                        fontWeight={page === 'about' ? 'bold' : 'normal'} fontStyle={page === 'about' ? 'italic' : 'normal'}
+                        sx={{
+                            fontSize: '1.5rem',
+                        }}
+                    >
+                        <Link to="/about" sx={{ color: 'primary.black', textDecoration: 'none', }}>About</Link>
+                    </Typography>
+                </Stack>
             </Stack>
         </>
     );

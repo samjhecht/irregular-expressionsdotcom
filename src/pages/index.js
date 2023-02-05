@@ -22,6 +22,7 @@ export default function Index({ data, location }) {
           gutterBottom
           sx={{
             textAlign: 'center',
+            whiteSpace: 'nowrap',
           }}
         >
           At my window
@@ -40,6 +41,7 @@ export default function Index({ data, location }) {
           sx={{
             textAlign: 'center',
             fontStyle: 'italic',
+            whiteSpace: 'nowrap',
           }}
         >
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; - Townes Van Zandt
