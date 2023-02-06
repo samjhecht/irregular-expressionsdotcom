@@ -1,11 +1,8 @@
 import * as React from "react";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Box, Typography, Stack, Divider } from '@mui/material';
 import Link from '../components/Link';
-import Stack from '@mui/material/Stack';
-import Divider from '@mui/material/Divider';
 
 
 const PoemTemplate = ({

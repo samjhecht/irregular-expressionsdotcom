@@ -1,10 +1,7 @@
 import * as React from "react"
-import { graphql, Link as GatsbyLink } from "gatsby"
-import List from "@mui/material/List"
-import ListItem from "@mui/material/ListItem"
-import ListItemText from "@mui/material/ListItemText"
-import Typography from '@mui/material/Typography';
-import Link from '@mui/material/Link';
+import { graphql } from "gatsby"
+import { List, ListItem, ListItemText, Typography } from '@mui/material';
+import Link from '../components/Link';
 import Layout from "../components/Layout";
 
 const Blog = ({ data, location }) => {
@@ -29,7 +26,6 @@ const Blog = ({ data, location }) => {
                             <ListItemText
                                 primary={
                                     <Link
-                                        as={GatsbyLink}
                                         to={`/blog${post.fields.slug}`}
                                         sx={{
                                             color: 'primary.black',

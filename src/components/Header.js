@@ -1,47 +1,17 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import Typography from '@mui/material/Typography';
 import Link from '../components/Link';
-import { Box } from '@mui/material';
-import { Stack } from '@mui/material';
+import { Typography, Stack } from '@mui/material';
 
 function Header(props) {
-    const { title, location } = props;
+    const { location } = props;
     const pathname = location.pathname
     const pathnameArray = pathname.split('/')
     const page = pathnameArray[1]
 
     return (
         <>
-            {/* <Box
-                component="header"
-                sx={{
-                    backgroundColor: 'primary.white',
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                }}
-            >
-                <Typography
-                    variant="headerTitle"
-                    sx={{
-                        fontFamily: 'Vulf Sans',
-                        fontWeight: 'bold',
-                        fontStyle: 'normal',
-                        // fontSize: '2rem',
-                        whiteSpace: 'nowrap',
-                    }}>
-                    <Link
-                        to="/"
-                        sx={{
-                            color: 'primary.black',
-                            textDecoration: 'none',
-                        }}
-                    >Irregular Expressions</Link>
-                </Typography>
-            </Box> */}
-            <Stack direction="column" display="flex" justifyContent="flex-start" alignItems="center" spacing={2} sx={{mb: 8}}>
+            <Stack direction="column" spacing={2} sx={{mb: 8, display: "flex", alignContent: "center", justifyContent: "center", alignItems:"center"}}>
                 <Typography
                     variant="h4"
                     sx={{

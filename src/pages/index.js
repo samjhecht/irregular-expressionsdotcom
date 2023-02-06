@@ -1,8 +1,7 @@
 import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import Layout from '../components/Layout';
 import { graphql } from "gatsby";
+import { Box, Typography } from '@mui/material';
+import Layout from '../components/Layout';
 
 export default function Index({ data, location }) {
 

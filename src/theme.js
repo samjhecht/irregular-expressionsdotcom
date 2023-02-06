@@ -61,6 +61,11 @@ const theme = createTheme({
     },
   },
   overrides: {
+    MuiFormControlLabel: {
+      label: {
+        fontSize: '100rem',
+      },
+    },
     MuiLink: {
       root: {
         color: '#000000',

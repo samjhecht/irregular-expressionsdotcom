@@ -2,7 +2,6 @@ import * as React from "react"
 import Header from "./Header"
 import Container from '@mui/material/Container';
 import StickyFooter from '../components/Footer';
-import Box from '@mui/material/Box';
 
 const Layout = ({ location, title, children }) => {
 
