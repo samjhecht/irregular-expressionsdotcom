@@ -35,5 +35,9 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "post-update": "echo \"codesandbox preview only, need an update\" && yarn upgrade --latest"
+  },
+  "devDependencies": {
+    "gatsby-cli": "^5.5.0",
+    "node": "^19.6.0"
   }
 }
