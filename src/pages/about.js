@@ -18,7 +18,6 @@ const About = ({ location }) => {
       >
         About
       </Typography>
-      {/* <Stack direction="row" spacing={1} sx={{mt:1}}> */}
       <Grid2 container spacing={2}>
         <Grid2 item xs={12} sm={7}>
           <Stack direction="column" spacing={4}>
@@ -74,7 +73,6 @@ const About = ({ location }) => {
           </Stack>
         </Grid2>
         <Grid2 item xs={12} sm={5} md={5} sx={{ display: "flex", alignContent: "center", justifyContent: "center", alignItems:"center"}}>
-          {/* <Stack direction="column" spacing={1}> */}
             <Box
               component="img"
               src="../images/with_david_800_915.jpg"
@@ -89,10 +87,8 @@ const About = ({ location }) => {
               loading="eager"
             >
             </Box>
-          {/* </Stack> */}
         </Grid2>
       </Grid2>
-      {/* </Stack> */}
     </Layout >
   )
 }

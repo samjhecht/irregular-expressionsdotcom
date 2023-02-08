@@ -2,6 +2,7 @@ import * as React from "react"
 import Header from "./Header"
 import Container from '@mui/material/Container';
 import StickyFooter from '../components/Footer';
+import WaveyFooter from '../components/WaveyFooter';
 
 const Layout = ({ location, title, children }) => {
 
@@ -17,6 +18,7 @@ const Layout = ({ location, title, children }) => {
                     padding: '2.5rem 1.25rem',
                     // maxWidth: '42rem',
                     alignContent: 'center',
+                    // justifyContent: 'flex-start',
                     justifyContent: 'center',
                     alignItems: 'center',
                 }}

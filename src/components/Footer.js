@@ -13,7 +13,7 @@ export default function StickyFooter() {
                 }}
             >
                 <Container maxWidth="sm">
-                    <Typography color="text.black" sx={{fontSize: "0.92rem", whiteSpace: "nowrap"}}>
+                    <Typography color="text.black" sx={{ fontSize: "0.92rem", whiteSpace: "nowrap" }}>
                         Copyright © {new Date().getFullYear()}, Julius Hecht.
                         {` `}
                     </Typography>

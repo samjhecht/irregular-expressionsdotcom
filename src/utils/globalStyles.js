@@ -1,31 +1,45 @@
 // import { css } from "@emotion/react"
 
 // const globalStyles = css`
-//   html {
-//     font-family: "cg", Courier, system-ui, sans-serif;
-//     font-weight: 500;
-//     line-height: calc(1em + 0.5rem);
-//   }
-//   body {
-//     background-color: #FFF;
-//   }
-//   .gatsby-highlight-code-line {
-//     display: block;
-//   }
-//   .gatsby-highlight-code-line {
-//     background: rgba(255,255,255,0.1);
-//   }
-//   .game-preview-link {
-//     .cover {
-//       transition: transform 0.25s ease;
+
+//     .waves {
+//         position:relative;
+//         width: 100%;
+//         height:15vh;
+//         margin-bottom:-7px; /*Fix for safari gap*/
+//         min-height:100px;
+//         max-height:150px;
 //     }
-//     &:hover,
-//     &:focus {
-//       .cover {
-//         transform: scale(1.1);
-//       }
+
+//     /* Animation */
+
+//     .parallax > use {
+//     animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
 //     }
-//   }
-// `
+//     .parallax > use:nth-child(1) {
+//     animation-delay: -2s;
+//     animation-duration: 7s;
+//     }
+//     .parallax > use:nth-child(2) {
+//     animation-delay: -3s;
+//     animation-duration: 10s;
+//     }
+//     .parallax > use:nth-child(3) {
+//     animation-delay: -4s;
+//     animation-duration: 13s;
+//     }
+//     .parallax > use:nth-child(4) {
+//     animation-delay: -5s;
+//     animation-duration: 20s;
+//     }
+//     @keyframes move-forever {
+//     0% {
+//     transform: translate3d(-90px,0,0);
+//     }
+//     100% { 
+//         transform: translate3d(85px,0,0);
+//     }
+//     }
+// `;
 
 // export default globalStyles
