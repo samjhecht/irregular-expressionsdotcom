@@ -1,9 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import CssBaseline from '@mui/material/CssBaseline';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from '../../src/theme';
+// import CssBaseline from '@mui/material/CssBaseline';
+// import { ThemeProvider } from '@mui/material/styles';
+// import theme from '../../src/theme';
 
 export default function TopLayout(props) {
   return (
@@ -15,11 +15,11 @@ export default function TopLayout(props) {
           rel="stylesheet"
         />
       </Helmet>
-      <ThemeProvider theme={theme}>
+      {/* <ThemeProvider theme={theme}> */}
         {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-        <CssBaseline />
+        {/* <CssBaseline /> */}
         {props.children}
-      </ThemeProvider>
+      {/* </ThemeProvider> */}
     </React.Fragment>
   );
 }

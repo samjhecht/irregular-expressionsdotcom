@@ -16,13 +16,13 @@ import CssWave from '../components/CssWave';
 const Testy = ({ location, theme }) => {
 
     return (
-        <>
             <Stack
                 maxWidth="100%"
                 direction="column"
                 justifyContent='center'
                 alignItems='center'
                 spacing={0}
+                padding={0}
                 mb={0}
                 sx={{
                     bottom: 0,
@@ -30,23 +30,24 @@ const Testy = ({ location, theme }) => {
             >
                 <Container
                     // maxWidth="sm"
+                    maxWidth="100%"
                     sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
+                        // display: 'flex',
+                        // flexDirection: 'column',
                         minHeight: '80vh',
-                        margin: '0 auto',
-                        padding: '2.5rem 1.25rem',
+                        // margin: '0 auto',
+                        // padding: '2.5rem 1.25rem',
                         // maxWidth: '42rem',
-                        alignContent: 'center',
-                        justifyContent: 'flex-start',
+                        // alignContent: 'center',
+                        // justifyContent: 'flex-start',
                         // justifyContent: 'center',
-                        alignItems: 'center',
+                        // alignItems: 'center',
                     }}
                 >
                     <Header location={location} />
-                    <Container component="main" sx={{ mt: 20 }} maxWidth="sm">
+                    <Container component="main" sx={{ mt: 20 }} maxWidth="100%">
                         <Box sx={{
-                            padding: '2.5rem 1.25rem',
+                            // padding: '2.5rem 1.25rem',
                             mb: 2,
                         }}>
                             The sun that&apos;s always just about to set<br />
@@ -62,9 +63,8 @@ const Testy = ({ location, theme }) => {
                         <CssWave />
                     </Container>
                 </Container>
-                <WaveyFooter sx={{ bottom: 0, }} />
+                <WaveyFooter sx={{ bottom: 0, }} maxWidth="100%" />
             </Stack>
-        </>
     )
 }
 

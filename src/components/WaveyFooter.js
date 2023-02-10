@@ -8,6 +8,7 @@ export default function WaveyFooter() {
         <>
             <Box
                 component="footer"
+                maxWidth="100%"
                 sx={{
                     maxWidth: "100%",
                     py: 3,
